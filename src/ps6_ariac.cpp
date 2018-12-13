@@ -29,6 +29,7 @@ bool conveyor_started = false;
 bool box_under_camera = false;
 
 /// Start the competition by waiting for and then calling the start ROS Service.
+// Sampled from the ARIAC Hello World Tutorial: http://wiki.ros.org/ariac/2018/Tutorials/HelloWorld
 void start_competition(ros::NodeHandle & node) {
 	// Create a Service client for the correct service, i.e. '/ariac/start_competition'.
 	ros::ServiceClient start_client = node.serviceClient<std_srvs::Trigger>("/ariac/start_competition");
@@ -51,6 +52,7 @@ void start_competition(ros::NodeHandle & node) {
 
 
 /// Example class that can hold state and provide methods that handle incoming data.
+// Sampled from the ARIAC Hello World tutorial: http://wiki.ros.org/ariac/2018/Tutorials/HelloWorld
 class MyCompetitionClass {
 	public:
 		explicit MyCompetitionClass(ros::NodeHandle & node): current_score_(0), has_been_zeroed_(false) {
@@ -182,7 +184,8 @@ void laser_profiler_callback(const sensor_msgs::LaserScan::ConstPtr & msg) {
 	}
 }
      
-     
+
+// A main function for startup
 int main(int argc, char ** argv) {
        // Last argument is the default name of the node.
        ros::init(argc, argv, "ps6_ariac_node");
